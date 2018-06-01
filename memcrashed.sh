@@ -1,6 +1,6 @@
 #!/usr/bin/sudo /bin/bash
 i=0
-if type lsb_release >/dev/null @>&1; then
+if type lsb_release >/dev/null 2>&1; then
   distro=$(lsb_release -i -s)
 elif [ -e /etc/os-release ]; then
   distro=$(awk -F= '$1 == "ID" {print 2}' /etc/os-release)
