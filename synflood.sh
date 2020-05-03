@@ -29,7 +29,7 @@ else
     TARGET is the IP address to attack, and \
     PORT is the port to attack on the target."
   elif [ -z $2 ]; then
-    echo "Usage: ./synflood.sh TARGET MULTIPLIER, where \
+    echo "Usage: ./synflood.sh TARGET PORT, where \
     TARGET is the IP address to attack, and \
     PORT is the port to attack on the target"
   else
