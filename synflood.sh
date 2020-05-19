@@ -41,17 +41,17 @@ if [ -z "$(which nping)" ]; then
   esac
 else
   if [ -z $target ]; then
-    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
+    echo "Usage: ./synflood.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
     and MULTIPLIER is the number of simultaneous process to run."
   elif [ -z $port ]; then
-    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
+    echo "Usage: ./synflood.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
     and MULTIPLIER is the number of simultaneous process to run."
   elif [ -z $mul ]; then
-    echo "Usage: ./memcrashed.sh TARGET PORT MULTIPLIER, where \
+    echo "Usage: ./synflood.sh TARGET PORT MULTIPLIER, where \
     TARGET is the IP address to attack, \
     PORT is the port to attack on the target, \
     and MULTIPLIER is the number of simultaneous process to run."
