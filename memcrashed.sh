@@ -11,16 +11,16 @@ fi
 if [ -z "$(which nping)" ]; then
   echo "nmap not installed; installing"
   case $distro in
-      ubuntu*) apt-get -y install nmap ;;
-      debian*) apt-get -y install nmap ;;
-      mint*)   apt-get -y install nmap ;;
-      kali*)   apt-get -y install nmap ;;
-      fedora*) yum install nmap; dnf install nmap ;;
-      suse*)   zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Leap_42.3/network:utilities.repo; zypper refresh; zypper install nmap ;;
-      centos*) yum install nmap ;;
-      rhel*)   yum install nmap ;;
-      arch*)   pacman -Sy nmap ;;
-      gentoo*) USE="-gtk -gnome" emerge -pv nmap ;;
+      [Uu]buntu*) apt-get -y install nmap ;;
+      [Dd]ebian*) apt-get -y install nmap ;;
+      [Mm]int*)   apt-get -y install nmap ;;
+      [Kk]ali*)   apt-get -y install nmap ;;
+      [Ff]edora*) yum install nmap; dnf install nmap ;;
+      [Ss]u[Ss][Ee]*)   zypper addrepo https://download.opensuse.org/repositories/network:utilities/openSUSE_Leap_42.3/network:utilities.repo; zypper refresh; zypper install nmap ;;
+      [Cc]ent[Oo][Ss]*) yum install nmap ;;
+      [Rr][Hh][Ee][Ll]*)   yum install nmap ;;
+      [Aa]rch*)   pacman -Sy nmap ;;
+      [Gg]entoo*) USE="-gtk -gnome" emerge -pv nmap ;;
       *)       echo "Error: Unknown distribution $distro"; exit 1 ;;
   esac
 else
